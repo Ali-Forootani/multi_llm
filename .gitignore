@@ -1,0 +1,11 @@
+# Ignore all .log files
+*.log
+
+# Ignore the node_modules directory
+/data/generated_images
+
+# Ignore specific files
+
+
+# Ignore a specific directory
+

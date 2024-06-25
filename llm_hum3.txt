@@ -1,0 +1,23 @@
+conda create -n env_name python=3.10.8
+conda install pytorch torchvision torchaudio pytorch-cuda=11.8 -c pytorch -c nvidia
+conda install huggingface::transformers
+
+conda install conda-forge::accelerate
+conda install conda-forge::uvicorn
+pip install bitsandbytes
+conda install conda-forge::langchain
+conda install conda-forge::langchain-community
+conda install conda-forge::openai
+conda install conda-forge::pyprojroot
+conda install conda-forge::tiktoken
+conda install conda-forge::python-dotenv
+pip install langchain-openai
+conda install conda-forge::spyder
+
+conda install conda-forge::mkl
+conda install conda-forge::gradio
+
+python src/utils/web_servers/rag_reference_service.py
+
+
+
