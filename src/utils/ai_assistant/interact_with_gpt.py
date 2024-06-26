@@ -19,12 +19,22 @@ def interact_with_gpt_assistant(prompt:str, llm_engine:str, temperature:float, l
 
     Returns:
         Dict: A dictionary containing the response from the chatbot.
+        
+        client.chat.completions.create
+        
     """
     
     client_gpt_assistant = OpenAI()
     
-    response = client_gpt_assistant.ChatCompletion.create(
-            engine=llm_engine,
+    print("here it is the place")
+    print(llm_engine)
+    print(llm_system_role)
+    print(prompt)
+    print(temperature)
+    
+    
+    response = client_gpt_assistant.chat.completions.create(
+            model=llm_engine,
             messages=[
                 {"role": "system", "content": llm_system_role},
                 {"role": "user", "content": prompt}
@@ -32,3 +42,4 @@ def interact_with_gpt_assistant(prompt:str, llm_engine:str, temperature:float, l
             temperature=temperature,
         )
     return response
+

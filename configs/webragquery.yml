@@ -14,7 +14,7 @@ llm_summarizer:
     "You will recieve the chat history, user's new query, along with the web search result for that query. Provide the user with the most relevant information.\n\n"
 
 llm_rag:
-  gpt_model: gpt-35-turbo-16k
+  gpt_model: gpt-3.5-turbo-16k
   temperature: 0
   system_role:
     "You will recieve the chat history, user's new query, along with the web search result for that query on a website content. Provide the user with the most relevant information.\

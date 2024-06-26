@@ -108,6 +108,12 @@ class ServiceCall:
             response = requests.post(
                 f'http://127.0.0.1:{WEB_SERVICE_CFG.llava_service_port}/interact_with_llava', json=data)
             if response.status_code == 200:
+                
+                print("line_112________service call")
+                print(response)
+                print(response.json()['text'])
+                print("line_112________service call")
+                
                 text = response.json()['text']
                 return text
             else:

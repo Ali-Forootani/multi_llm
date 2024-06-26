@@ -126,8 +126,8 @@ class PerformRAG:
         question = "# User new question:\n" + self.message
         prompt = f"{self.chat_history}{retrieved_content}{question}"
         client = OpenAI() 
-        response = client.ChatCompletion.create(
-            engine=self.llm_engine,
+        response = client.chat.completions.create(
+            model=self.llm_engine,
             messages=[
                 {"role": "system", "content": self.llm_system_role},
                 {"role": "user", "content": prompt}
@@ -135,7 +135,7 @@ class PerformRAG:
             temperature=self.temperature,
             # stream=False
         )
-        return response["choices"][0]["message"]["content"]
+        return response.choices[0].message.content
 
     def clean_references(self, documents: List, server_url: str = "http://localhost:8000") -> str:
         """

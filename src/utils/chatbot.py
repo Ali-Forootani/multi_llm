@@ -65,12 +65,25 @@ class ChatBot:
         if chatbot_functionality == "GPT AI assistant":
             question = "# User new question:\n" + message
             prompt = f"{chat_history}{question}"
+            
+            print("888888888888888888888888888")
+            print("888888888888888888888888888")
+            print(AICFG.gpt_engine)
+            print(gpt_temperature)
+            print(AICFG.gpt_system_role)
+            print(prompt)
+            print("888888888888888888888888888")
+            print("888888888888888888888888888")
+            
             response = interact_with_gpt_assistant(prompt,
                                                    llm_engine=AICFG.gpt_engine,
                                                    temperature=gpt_temperature,
                                                    llm_system_role=AICFG.gpt_system_role
                                                    )
-            response_content = response["choices"][0]["message"]["content"]
+            #response_content = response["choices"][0]["message"]["content"]
+            
+            response_content = response.choices[0].message.content
+            
             chatbot.append(
                 (message, response_content))
             print(chatbot)
@@ -137,6 +150,9 @@ class ChatBot:
                 (message, response))
             return chatbot, gr.MultimodalTextbox(value=None, interactive=False, file_types=["image"]), ""
         elif chatbot_functionality == "LLAVA AI assistant (Understands images)":
+            
+            
+            
             response = ServiceCall.ask_llava(
                 message, llava_max_output_token, user_image_url)
             response = ServiceCall.remove_inst(response)

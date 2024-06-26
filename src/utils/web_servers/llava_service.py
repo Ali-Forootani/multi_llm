@@ -1,3 +1,6 @@
+
+
+
 from flask import Flask, request, jsonify
 from transformers import LlavaNextProcessor, LlavaNextForConditionalGeneration
 from transformers import LlavaNextForConditionalGeneration, BitsAndBytesConfig
@@ -10,7 +13,7 @@ from load_web_service_config import LoadWebServicesConfig
 
 WEB_SERVICE_CFG = LoadWebServicesConfig()
 
-
+import requests
 
 import sys
 import os
@@ -39,6 +42,7 @@ def load_llava(quantized=True):
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
     model_path = setting_directory(4) + "\\Llavar_repo\\LLaVA\\llava-1.5-7b-hf"
+    
     
    
     if quantized and str(1.6) in model_path:
@@ -88,17 +92,62 @@ def interact_with_llava():
         print(url)
         print(prompt)
         print("==================")
-        prompt = f"[INST] <image>\n{prompt} [/INST]"
+        prompt = f"USER: <image>\n {prompt} \nASSISTANT:"
         try:
+            
             image = Image.open(url)
         except:
             image = None
+        
+        
+        print("55555555555555555555555555555")
+        
+        print("here it is the url:", url)
+        
+        print("here it is the data", data )
+        
+        print("here it is the image", image)
+        
+        print("55555555555555555555555555555")
+        
+        
+        
+        inputs = processor(prompt, image, return_tensors='pt').to(device, torch.float16)
+
+        output = model.generate(**inputs, max_new_tokens = max_output_token, do_sample=False)
+        
+        
+        
+        print( "This is the tokenized output" , output)
+        
+        print( processor.decode )
+        
+        response = processor.decode(output[0] , skip_special_tokens=True)
+        
+        
+        
+        print("This is the response response:", response)
+        
+        
+        #print(processor.decode(output[0][2:], skip_special_tokens=True))
+        
+        
+        
+        #output = model.generate(**inputs, max_new_tokens=200, do_sample=False)
+        #print(processor.decode(output[0][1:], skip_special_tokens=True))
+
+        
+        
+        """
         inputs = processor(prompt, image, return_tensors="pt").to(device)
         # autoregressively complete prompt
         output = model.generate(**inputs, max_new_tokens=max_output_token)
         print(output)
         response = processor.decode(output[0], skip_special_tokens=True)
         print(response)
+        """
+        
+        
         del output
         del inputs
         del image
