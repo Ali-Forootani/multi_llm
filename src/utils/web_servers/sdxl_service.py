@@ -9,7 +9,7 @@ from load_web_service_config import LoadWebServicesConfig
 
 WEB_SERVICE_CFG = LoadWebServicesConfig()
 
-
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 
 def setting_directory(depth):
@@ -48,6 +48,7 @@ def load_stable_diffusion_xl_base_1_0():
     """
     from diffusers import StableDiffusionXLPipeline, EulerDiscreteScheduler
     from huggingface_hub import hf_hub_download
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     
     model_path = setting_directory(4) + "\\Llavar_repo\\LLaVA\\stable-diffusion-xl-base-1.0"
     
@@ -72,13 +73,26 @@ def load_stable_diffusion_xl_base_1_0():
 
     # Load model.
     pipe = StableDiffusionXLPipeline.from_pretrained(model_path, torch_dtype=torch.float16,
-                                                 variant="fp16").to("cuda")
+                                                 variant="fp16").to(device)
 
 
     pipe.load_lora_weights(model_path_2,
                        weight_name= "sdxl_lightning_4step_lora.safetensors")
     
     pipe.fuse_lora()
+    
+    current_time_unix = int(time.time())
+    
+    image_dir = here(f"data/generated_images/{current_time_unix}.png")
+    
+    print("888888888888888888888888888")
+    print("888888888888888888888888888")
+    
+    print(image_dir)
+    
+    print("888888888888888888888888888")
+    print("888888888888888888888888888")
+    
     
     # Ensure sampler uses "trailing" timesteps.
     pipe.scheduler = EulerDiscreteScheduler.from_config(
@@ -118,12 +132,25 @@ def generate_image():
         print("===========================")
         current_time_unix = int(time.time())
         image_dir = here(f"data/generated_images/{current_time_unix}.png")
+        
+       
+        
         print(prompt)
         # Ensure using the same inference steps as the loaded model and CFG set to 0.
         pipe(prompt, num_inference_steps=4,
              guidance_scale=0).images[0].save(f"{image_dir}")
+        
+        
+        ######################################################
+        import base64    
+        with open(image_dir, "rb") as image_file:
+            encoded_string = base64.b64encode(image_file.read()).decode('utf-8')
+        
+        ######################################################
+        
+        
         torch.cuda.empty_cache()
-        return jsonify({'text': f"data/generated_images/{current_time_unix}.png"}), 200
+        return jsonify( {'text':f"data/generated_images/{current_time_unix}.png"} ), 200
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 

@@ -115,8 +115,8 @@ class Summarizer:
         
         client_gpt_text = OpenAI()
         
-        response = client_gpt_text.ChatCompletion.create(
-            engine=gpt_model,
+        response = client_gpt_text.chat.completions.create(
+            model=gpt_model,
             messages=[
                 {"role": "system", "content": llm_system_role},
                 {"role": "user", "content": prompt}

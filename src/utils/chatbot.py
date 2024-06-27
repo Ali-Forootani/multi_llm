@@ -15,6 +15,33 @@ RAGCFG = LoadRAGConfig()
 WRQCFG = LoadWRQConfig()
 
 
+
+import sys
+import os
+import torch
+
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+cwd = os.getcwd()
+#sys.path.append(cwd + '/my_directory')
+sys.path.append(cwd)
+
+def setting_directory(depth):
+    current_dir = os.path.abspath(os.getcwd())
+    root_dir = current_dir
+    for i in range(depth):
+        root_dir = os.path.abspath(os.path.join(root_dir, os.pardir))
+        sys.path.append(os.path.dirname(root_dir))
+    return root_dir
+
+
+
+
+
+
+
+
+
 class ChatBot:
     @staticmethod
     def respond(chatbot: List,
@@ -66,14 +93,6 @@ class ChatBot:
             question = "# User new question:\n" + message
             prompt = f"{chat_history}{question}"
             
-            print("888888888888888888888888888")
-            print("888888888888888888888888888")
-            print(AICFG.gpt_engine)
-            print(gpt_temperature)
-            print(AICFG.gpt_system_role)
-            print(prompt)
-            print("888888888888888888888888888")
-            print("888888888888888888888888888")
             
             response = interact_with_gpt_assistant(prompt,
                                                    llm_engine=AICFG.gpt_engine,
@@ -165,8 +184,23 @@ class ChatBot:
                 (message, None))
             
             print("**************************")
+            print("**************************")
             print(image_dir)
+            print(setting_directory(1))
+            print(setting_directory(2))
+            print(setting_directory(3))
+            #S:\HUMAIN-advanced-multimodal-chatbot\data\generated_images
+            print("**************************")
             print("**************************")
             
-            chatbot.append((None, (image_dir,)))
-            return chatbot, gr.MultimodalTextbox(value=None, interactive=False, file_types=["image"]), ""
+            chatbot.append((None, (setting_directory(1)+ "\\" + image_dir,)))
+            
+            #chatbot, gr.MultimodalTextbox(value=None, interactive=False, file_types=["image"]), ""
+            # chatbot, gr.Image.update(value=image_dir, visible=True)
+            
+            multimodal_textbox_value = {
+                "text": "",
+                "files": [image_dir]
+                    }
+            
+            return chatbot, gr.MultimodalTextbox(value =None, interactive=False, file_types=["image"]), ""

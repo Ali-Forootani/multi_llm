@@ -100,16 +100,6 @@ def interact_with_llava():
             image = None
         
         
-        print("55555555555555555555555555555")
-        
-        print("here it is the url:", url)
-        
-        print("here it is the data", data )
-        
-        print("here it is the image", image)
-        
-        print("55555555555555555555555555555")
-        
         
         
         inputs = processor(prompt, image, return_tensors='pt').to(device, torch.float16)
@@ -118,15 +108,12 @@ def interact_with_llava():
         
         
         
-        print( "This is the tokenized output" , output)
-        
-        print( processor.decode )
+       
         
         response = processor.decode(output[0] , skip_special_tokens=True)
         
         
-        
-        print("This is the response response:", response)
+       
         
         
         #print(processor.decode(output[0][2:], skip_special_tokens=True))
