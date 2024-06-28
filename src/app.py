@@ -21,12 +21,19 @@ def setting_directory(depth):
         sys.path.append(os.path.dirname(root_dir))
     return root_dir
 
+# Define your custom CSS here
+custom_css = """
+body {
+    background-color:#ADD8E6;
+}
+"""
+
+custom_css=".gradio-container {background-color:green}"
 
 
-
-with gr.Blocks() as demo:
+with gr.Blocks(theme=gr.themes.Glass(),css= custom_css) as demo:
     with gr.Tabs():
-        with gr.TabItem("Advanced Multimodal ChatBot"):
+        with gr.TabItem("Advanced UFZ-Leipzig ChatBot"):
             ###############
             # Main App row:
             ###############

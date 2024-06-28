@@ -4,6 +4,8 @@ from langchain.vectorstores import Chroma
 from langchain.embeddings.openai import OpenAIEmbeddings
 import re
 
+from openai import OpenAI
+
 
 class LLM_RAG:
     """
@@ -102,8 +104,8 @@ class LLM_RAG:
 
     def ask(self) -> Dict:
         messages = self.prepare_messages()
-        response = openai.ChatCompletion.create(
-            engine=self.gpt_model,
+        response = OpenAI().chat.completions.create(
+            model = self.gpt_model,
             messages=messages,
             temperature=self.temperature
         )

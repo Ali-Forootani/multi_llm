@@ -49,8 +49,8 @@ class LLMFuntionCaller:
         response = client_gpt_model.chat.completions.create(
             model = gpt_model,
             messages = messages,
-            functions = function_json_list,
-            function_call = "auto",
+            tools = function_json_list,
+            tool_choice = "auto",
             temperature = temperature
         )
         return response

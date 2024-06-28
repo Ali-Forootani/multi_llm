@@ -159,7 +159,8 @@ class ChatBot:
         elif chatbot_functionality == "WebRAGQuery: RAG with the requested website (GPT model)":
             print("Here")
             response = ServiceCall.ask_rag_with_website_llm(
-                wrq_config=WRQCFG, message=message, chat_history=chat_history, k=rag_top_k_retrieval, rag_search_type=rag_search_type)
+                wrq_config=WRQCFG, message=message, chat_history=chat_history, k=rag_top_k_retrieval,
+                rag_search_type=rag_search_type)
             chatbot.append(
                 (message, response))
             return chatbot, gr.MultimodalTextbox(value=None, interactive=False, file_types=["image"]), ""

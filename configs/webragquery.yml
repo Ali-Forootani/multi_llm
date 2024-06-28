@@ -24,7 +24,7 @@ RAG:
   embedding_model_engine: "text-embedding-ada-002"
   chunk_size: 2000
   chunk_overlap: 250
-  persist_directory: "data\\vectordb\\web\\chroma\\"
+  persist_directory: "src\\data\\vectordb\\processed\\chroma\\"
   k: 3
 
 mmr_search_config:

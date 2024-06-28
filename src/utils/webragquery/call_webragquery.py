@@ -31,37 +31,25 @@ class WebRAGQuery:
         """
         messages = LLMFuntionCaller.prepare_messages(
             self.WRQCFG.llm_function_caller_system_role, self.chat_history, self.message)
+        
+        
+        
         print("First LLM messages:", messages, "\n")
         # Pass the input to the first model (function caller)
+        
+        
+        
         llm_function_caller_full_response = LLMFuntionCaller.ask(
-            self.WRQCFG.llm_function_caller_gpt_model, self.WRQCFG.llm_function_caller_temperature, messages, PrepareFunctions.wrap_functions())
+            self.WRQCFG.llm_function_caller_gpt_model, self.WRQCFG.llm_function_caller_temperature,
+            messages, PrepareFunctions.wrap_functions())
         
         
         ##################
         ##################
-        print("##############################################################")
-        print("##############################################################")
-        print("##############################################################")
-        print("##############################################################")
-
-        print(llm_function_caller_full_response.choices[0].message.content)
-        
-        print("+++++++++++++++++++++++++++++++++++++++")
-        
-        print(llm_function_caller_full_response.choices[0].message)
-        
-        print("***************************************")
-        
-        print(llm_function_caller_full_response.choices[0])
-        
-        print("##############################################################")
-        print("##############################################################")
-        print("##############################################################")
-        print("##############################################################")
         
         
         # If function was indeed called
-        if hasattr(llm_function_caller_full_response.choices[0].message, 'function_call'):
+        if hasattr(llm_function_caller_full_response.choices[0].message, 'tool_choice'):
             print("\nCalled function:",
                   llm_function_caller_full_response.choices[0].message.function_call.name)
             print(llm_function_caller_full_response.choices[0].message, "\n")
@@ -75,7 +63,7 @@ class WebRAGQuery:
         
         
         # If function called indeed called out a function
-        if "function_call" in llm_function_caller_full_response.choices[0].message.keys():
+        if "tool_choice" in llm_function_caller_full_response.choices[0].message:
             print("\nCalled function:",
                   llm_function_caller_full_response.choices[0].message.function_call.name)
             print(
@@ -100,6 +88,8 @@ class WebRAGQuery:
                     self.WRQCFG.llm_summarizer_gpt_model, self.WRQCFG.llm_summarizer_temperature, messages)
                 return llm_web_response  # It will be in the string format
         else:  # No function was called. LLM function caller is using its own knowledge
-            llm_function_caller_response = llm_function_caller_full_response[
-                "choices"][0]["message"]["content"]
+            llm_function_caller_response = llm_function_caller_full_response.choices[0].message.content
+            
+            #llm_function_caller_full_response.[
+            #    "choices"][0]["message"]["content"]
             return llm_function_caller_response  # It will be in the string format
