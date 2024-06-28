@@ -1,5 +1,5 @@
 llm_function_caller:
-  gpt_model: gpt-3.5-turbo-16k
+  gpt_model: gpt-3.5-turbo
   temperature: 0
   system_role:
     "As a chatbot, your goal is to respond to the user's question respectfully and concisely.\
@@ -8,13 +8,13 @@ llm_function_caller:
     "
 
 llm_summarizer:
-  gpt_model: gpt-3.5-turbo-16k
+  gpt_model: gpt-3.5-turbo
   temperature: 0
   system_role:
     "You will recieve the chat history, user's new query, along with the web search result for that query. Provide the user with the most relevant information.\n\n"
 
 llm_rag:
-  gpt_model: gpt-3.5-turbo-16k
+  gpt_model: gpt-35-turbo
   temperature: 0
   system_role:
     "You will recieve the chat history, user's new query, along with the web search result for that query on a website content. Provide the user with the most relevant information.\
@@ -32,7 +32,7 @@ mmr_search_config:
   lambda_param: 0.5
 
 summarizer_config:
-  gpt_model: gpt-3.5-turbo-16k
+  gpt_model: gpt-3.5-turbo
   max_final_token: 3000
   character_overlap: 100
   token_threshold: 0

@@ -3,6 +3,9 @@ from utils.webragquery.wrq_utils import count_num_tokens
 from langchain.document_loaders import WebBaseLoader
 from utils.webragquery.load_wrq_config import LoadWRQConfig
 import openai
+
+from openai import OpenAI
+
 CFG = LoadWRQConfig()
 
 
@@ -79,8 +82,11 @@ class WebSummarizer:
         Returns:
             str: The response content from the ChatGPT engine.
         """
-        response = openai.ChatCompletion.create(
-            engine=gpt_model,
+        
+        client_gpt_llm_response = OpenAI()
+        
+        response = client_gpt_llm_response.chat.completions.create(
+            model = gpt_model,
             messages=[
                 {"role": "system", "content": llm_system_role},
                 {"role": "user", "content": prompt}

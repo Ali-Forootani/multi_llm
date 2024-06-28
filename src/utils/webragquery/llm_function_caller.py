@@ -1,6 +1,7 @@
-import openai
-from typing import List, Dict
+#import openai
 
+from typing import List, Dict
+from openai import OpenAI
 
 class LLMFuntionCaller:
     @staticmethod
@@ -42,11 +43,14 @@ class LLMFuntionCaller:
         Returns:
             The response object from the OpenAI ChatCompletion API call.
         """
-        response = openai.ChatCompletion.create(
-            engine=gpt_model,
-            messages=messages,
-            functions=function_json_list,
-            function_call="auto",
-            temperature=temperature
+        
+        client_gpt_model = OpenAI()
+        
+        response = client_gpt_model.chat.completions.create(
+            model = gpt_model,
+            messages = messages,
+            functions = function_json_list,
+            function_call = "auto",
+            temperature = temperature
         )
         return response

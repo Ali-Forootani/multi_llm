@@ -37,11 +37,6 @@ def setting_directory(depth):
 
 
 
-
-
-
-
-
 class ChatBot:
     @staticmethod
     def respond(chatbot: List,
@@ -183,15 +178,6 @@ class ChatBot:
             chatbot.append(
                 (message, None))
             
-            print("**************************")
-            print("**************************")
-            print(image_dir)
-            print(setting_directory(1))
-            print(setting_directory(2))
-            print(setting_directory(3))
-            #S:\HUMAIN-advanced-multimodal-chatbot\data\generated_images
-            print("**************************")
-            print("**************************")
             
             chatbot.append((None, (setting_directory(1)+ "\\" + image_dir,)))
             

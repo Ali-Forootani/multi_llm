@@ -1,0 +1,19 @@
+S:\Users\forootan\AppData\Local\miniconda3\Scripts\activate
+S:\Users\forootan\miniconda3\Scripts\activate
+
+cd s:\HUMAIN-advanced-multimodal-chatbot\src\utils\web_servers
+python llava_service.py
+python sdxl_service.py
+python stt_service.py
+python load_web_service_config.py
+python rag_reference_service.py
+
+
+conda activate llava_liu
+
+nvcc --version
+python -m llava.serve.controller --host 0.0.0.0 --port 10000
+python -m llava.serve.gradio_web_server --controller http://localhost:10000 --model-list-mode reload
+python -m llava.serve.model_worker --host 0.0.0.0 --controller http://localhost:10000 --port 40000 --worker http://localhost:40000 --model-path S:\Llavar_repo\LLaVA\llava-v1.5-7b
+
+for /f "tokens=5" %a in ('netstat -ano ^| findstr 127.0.0.0:') do taskkill /F /PID %a
