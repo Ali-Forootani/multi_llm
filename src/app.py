@@ -31,7 +31,7 @@ body {
 custom_css=".gradio-container {background-color:green}"
 
 
-with gr.Blocks(theme=gr.themes.Glass(),css= custom_css) as demo:
+with gr.Blocks(theme=gr.themes.Glass()) as demo:
     with gr.Tabs():
         with gr.TabItem("Advanced UFZ-Leipzig ChatBot"):
             ###############
