@@ -39,7 +39,9 @@ Welcome to the Helmholtz Center for Environmental Research Chatbot! This guide w
 ### Image Understanding
 - llava-hf/llava-1.5-7b-hf: [Website](https://huggingface.co/llava-hf/llava-1.5-7b-hf)  
 - Note that different models have different syntaxes to work with! e.g. llava-hf/llava-v1.6-mistral-7b-hf [Website](https://huggingface.co/llava-hf/llava-v1.6-mistral-7b-hf) has different syntaxes on Huggingface
+- I recommend you to downlaod the weights from huggingface hub and put it in your local directory! e.g. llava-1.5-7b-hf is [here](https://huggingface.co/llava-hf/llava-1.5-7b-hf/tree/main), 
 
+ 
 ### Image Generation
 
 - stabilityai/stable-diffusion-xl-base-1.0 with LORA weights ByteDance/SDXL-Lightning : [Website](https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0), [Website] (https://huggingface.co/ByteDance/SDXL-Lightning)
@@ -86,6 +88,8 @@ conda create -n chatbot-env python=3.10
 ```
 
 Then start to install the packages manually:
+
+
 
 
 
