@@ -71,13 +71,21 @@ sudo apt update && sudo apt upgrade
 python3 -m venv chatbot-env
 git clone <the repository>
 ```
+
+```
 cd multi_llm
+```
 ```
 source ...Path to the environment/chatbot-env/bin/activate
 ```
 
+- We recommend you to stick with Python version 3.10, abd create a following conda environemtn as follows:
 
+```
+conda create -n chatbot-env python=3.10
+```
 
+Then start to install the packages manually:
 
 
 
