@@ -4,7 +4,7 @@ Welcome to the Helmholtz Center for Environmental Research Chatbot! This guide w
 
 ## Helmholtz Center for Environmental Research Chatbot
 <div align="center">
-  <img src="images/ufz_chatbot" alt="ufz_chatbot">
+  <img src="images/ufz_chatbot.png" alt="ufz_chatbot">
 </div>
 
 ## Features:
