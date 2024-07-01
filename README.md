@@ -31,7 +31,7 @@ Welcome to the Helmholtz Center for Environmental Research Chatbot! This guide w
 
 ## Models used in this chatbot:
 ### Question and Answering Capabilities:
-- GPT 3.5-turbo: [Website](https://platform.openai.com/docs/models) -- here we used Helmholtz base URL which was supported by Blablador [here](https://strube1.pages.jsc.fz-juelich.de/2024-02-talk-lips-blablador/#/title-slide)
+- GPT 3.5-turbo: [here](https://platform.openai.com/docs/models) -- here we used Helmholtz base URL which was supported by Blablador [here](https://strube1.pages.jsc.fz-juelich.de/2024-02-talk-lips-blablador/#/title-slide)
 - It is possible to add your API as well, but you need to insert API-Key
 
 - text-embedding-ada-002: [here](https://platform.openai.com/docs/models)
@@ -134,30 +134,36 @@ You can use your custome IDE but I used Spyder(```pip install spyder```) or cond
 
 
 
-- No need to download model weights separately; all models are accessed directly from the HuggingFace hub.
+- If you have enough hard drive you can go for autoamtic downlaod and no need to download model weights separately; all models are accessed directly from the HuggingFace hub.
 
 ## Execution:
 
+- you can find the details of settigns in folder ```multi_llm-main\configs``` that you need to modify the content of .txt files as you desire!
+
+
+e.g. the `rag_gpt` has directory settings: 
+
+```text
+directories:
+  data_directory: data\docs
+  data_directory_2: data\docs_2
+  persist_directory: data\vectordb\processed\chroma\
+  custom_persist_directory: data\vectordb\uploaded\chroma\
+```
+
+
+
+
+
 To prepare Documents for RAG, Copy PDF files to `data/docs` directory and execute:
 ```
-python src/prepare_vectordb_from_docs.py.
+python src/prepare_vectordb_from_docs.py
 ```
 
-### Chatbot one-Click Execution:
-Run the provided script: 
-```
-./run_chatbot.sh
-```
-### Accessing the Chatbot UI:
-Visit http://127.0.0.1:7860 in your web browser after executing the command.
 
-### Stopping the Chatbot:
-- Detach from Session:
-Press Ctrl + b, then release both keys and press d.
-- To terminate Session in the terminal, execute: 
-```
-tmux kill-session -t chatbot
-```
+
+
+
 
 ### Manual Execution:
 Terminal One: RAG Reference Service
