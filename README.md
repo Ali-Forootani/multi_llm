@@ -126,6 +126,8 @@ pip install uvicorn
 pip install tiktoken
 pip install bitsandbytes
 pip install pyprojroot
+pip install chromadb
+pip install duckduckgo-search
 pip install gradio
 ```
 
@@ -169,7 +171,7 @@ llm_function_caller:
 ```
 
 
-To prepare Documents for RAG, Copy PDF files to `data\docs` directory and execute:
+-To prepare Documents for RAG, Copy PDF files to `data\docs` directory and execute:
 ```
 python src\prepare_vectordb_from_docs.py
 ```
