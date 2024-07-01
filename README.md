@@ -24,55 +24,27 @@ Welcome to the Helmholtz Center for Environmental Research Chatbot! This guide w
 
 
 
-
-
-
-
-
-
-
-
-******************************************
-
-# Advanced Multimodal Chatbot Readme
-
-Welcome to my advanced multimodal chatbot! Here's a breakdown of what it can do and how to get it up and running.
-## HUMAIN multi-modal multi-task chatbot
-<div align="center">
-  <img src="images/HUMAIN.png" alt="HUMAIN">
-</div>
-
-## Features:
-- ChatGPT-like interaction: Chatbot can act as a normal AI assistant.
-- RAG (Retrieval Augmented Generation) capabilities: The chatbot can perform RAG in 3 different ways 
-  1. With preprocessed documents
-  2. Documents that the user uploads while using the chatbot
-  3. Any webiste that the user requests.
-- Image generation: Chatbot utilizes a stable diffusion model to generate images.
-- Image understanding: Chatbot Understands the content of images and can answer user's question based on the content of the image using the LLava model.
-- DuckDuckGo integration: Access the DuckDuckGo search engine to provide answers based on search results when needed.
-- Summarization: Summarize website content or documents upon user request.
-- Text and voice interaction: Interact with chatbot through both text and voice inputs.
-- Memory: The GPT models in the chatbot also have access to the memory (user's previous queries during the current session).
-
-NOTE: This chatbot includes both the RAG-GPT and WebRAGQuery projects.
-
-
-
 ## Main underlying techniques used in this chatbot:
 - LLM chains and agents
 - GPT function calling
 - Retrieval Augmented generation (RAG)
 
 ## Models used in this chatbot:
-- GPT 3.5: [Website](https://platform.openai.com/docs/models)
+### Question and Answering Capabilities:
+- GPT 3.5-turbo: [Website](https://platform.openai.com/docs/models) -- here we used Helmholtz base URL which was supported by Blablador [Website](https://strube1.pages.jsc.fz-juelich.de/2024-02-talk-lips-blablador/#/title-slide)
+- It is possible to add your API as well, but you need to insert API-Key
+
 - text-embedding-ada-002: [Website](https://platform.openai.com/docs/models)
-- llava-hf/llava-v1.6-mistral-7b-hf: [Code](https://github.com/haotian-liu/LLaVA) - [Demo](https://llava.hliu.cc/) - [Website](https://llava-vl.github.io/blog/2024-01-30-llava-next/) - [Models](https://github.com/haotian-liu/LLaVA/blob/main/docs/MODEL_ZOO.md#llava-v16)
-- stabilityai/stable-diffusion-xl-base-1.0 : [Website](https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0)
+
+### Image Understanding
+- llava-hf/llava-1.5-7b-hf: [Website](https://huggingface.co/llava-hf/llava-1.5-7b-hf) - 
+- Note that different models have different syntaxes to work with! e.g. llava-hf/llava-v1.6-mistral-7b-hf [Website](https://huggingface.co/llava-hf/llava-v1.6-mistral-7b-hf) has different syntaxes on Huggingface
+
+- stabilityai/stable-diffusion-xl-base-1.0 with LORA weights ByteDance/SDXL-Lightning : [Website](https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0), [Website] (https://huggingface.co/ByteDance/SDXL-Lightning)
 - openai/whisper-base.en: [Website](https://huggingface.co/openai/whisper-base.en)
 
 ## Requirements:
-- Operating System: Linux OS or Windows Subsystem for Linux (WSL).
+- Operating System: Linux OS or Windows Subsystem for Linux (WSL). I used WINDOWS OS supported by 
 - GPU VRAM: Minimum 15 GB for full execution.
 - OpenAI or Azure OpenAI Credentials: Required for GPT functionality.
 

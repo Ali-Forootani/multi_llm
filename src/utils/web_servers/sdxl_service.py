@@ -85,13 +85,6 @@ def load_stable_diffusion_xl_base_1_0():
     
     image_dir = here(f"data/generated_images/{current_time_unix}.png")
     
-    print("888888888888888888888888888")
-    print("888888888888888888888888888")
-    
-    print(image_dir)
-    
-    print("888888888888888888888888888")
-    print("888888888888888888888888888")
     
     
     # Ensure sampler uses "trailing" timesteps.
