@@ -57,10 +57,10 @@ Welcome to the Helmholtz Center for Environmental Research Chatbot! This guide w
 
 - We highly recommend to frequently visit
 	Pytorch[Website](https://pytorch.org/), 
-	Huggingface[Wesite] (https://huggingface.co/docs/transformers/en/installation),
-	Openai[Website] (https://pypi.org/project/openai/), for related package updates since updates make conflict!
+	Huggingface[Wesite](https://huggingface.co/docs/transformers/en/installation),
+	Openai[Website](https://pypi.org/project/openai/), for related package updates since updates make conflict!
 
-- Ensure that you have a conda installation on your device! you may consider Minicaonda [Website](https://docs.anaconda.com/miniconda/#quick-command-line-install)
+- Ensure that you have a conda installation on your device! you may consider Minicaonda[Website](https://docs.anaconda.com/miniconda/#quick-command-line-install)
 
 - Ensure you have Python installed along with required dependencies.
 
