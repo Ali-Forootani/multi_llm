@@ -1,3 +1,39 @@
+# Helmholtz Center for Environmental Research Chatbot Readme
+
+Welcome to the Helmholtz Center for Environmental Research Chatbot! This guide will help you understand its capabilities and how to set it up.
+
+## Helmholtz Center for Environmental Research Chatbot
+<div align="center">
+  <img src="images/ufz_chatbot" alt="ufz_chatbot">
+</div>
+
+## Features:
+- **ChatGPT-like Interaction:** Acts as a standard AI assistant.
+- **Retrieval Augmented Generation (RAG):** Performs RAG in three different ways:
+  1. With preprocessed documents
+  2. With documents uploaded by the user during a session
+  3. From any website requested by the user
+- **Image Generation:** Utilizes a stable diffusion model to generate images.
+- **Image Understanding:** Understands the content of images and answers user questions based on image content using the LLava model.
+- **DuckDuckGo Integration:** Accesses the DuckDuckGo search engine to provide answers based on search results when needed.
+- **Summarization:** Summarizes website content or documents upon user request.
+- **Text and Voice Interaction:** Supports interaction through both text and voice inputs.
+- **Memory:** Remembers previous queries during the current session to provide a more coherent interaction.
+
+**Note:** This chatbot incorporates both the RAG-GPT and WebRAGQuery projects.
+
+
+
+
+
+
+
+
+
+
+
+******************************************
+
 # Advanced Multimodal Chatbot Readme
 
 Welcome to my advanced multimodal chatbot! Here's a breakdown of what it can do and how to get it up and running.
@@ -21,7 +57,7 @@ Welcome to my advanced multimodal chatbot! Here's a breakdown of what it can do 
 
 NOTE: This chatbot includes both the RAG-GPT and WebRAGQuery projects.
 
-**YouTube video:** [Link](https://youtu.be/AAvqscJPXIY?si=ApZ9-WfFfyGbcd-H)
+
 
 ## Main underlying techniques used in this chatbot:
 - LLM chains and agents
