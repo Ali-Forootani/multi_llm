@@ -176,6 +176,51 @@ python src\prepare_vectordb_from_docs.py
 
 
 
+#### Example of loading a LMM from local directory
+
+```python
+
+def load_llava(quantized=True):
+    
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+    model_path = setting_directory(4) + "\\Llavar_repo\\LLaVA\\llava-1.5-7b-hf"
+    
+    
+   
+    if quantized and str(1.6) in model_path:
+        quantization_config = BitsAndBytesConfig(
+            load_in_4bit = True,
+            bnb_4bit_quant_type="nf4",
+            bnb_4bit_compute_dtype=torch.float16,
+        )
+        print("===============================================")
+        print("Loading the quantized version of the model:")
+        print("===============================================")
+        model = LlavaNextForConditionalGeneration.from_pretrained(
+            model_path, quantization_config=quantization_config, device_map="auto")
+        processor = LlavaNextProcessor.from_pretrained(
+            model_path)
+    else:
+        print("Loading the full model:")
+        
+        
+        model = LlavaForConditionalGeneration.from_pretrained(
+            model_path, 
+            torch_dtype=torch.float16, 
+            low_cpu_mem_usage=True, 
+            ).to(device)
+        processor = AutoProcessor.from_pretrained(model_path)
+        
+        #model = LlavaNextForConditionalGeneration.from_pretrained(
+        #    model_path, torch_dtype=torch.float16, low_cpu_mem_usage=True).to(device)
+    return processor, model
+
+
+processor, model = load_llava(quantized=True)
+
+```
+
 
 
 
