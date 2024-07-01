@@ -38,7 +38,7 @@ Welcome to the Helmholtz Center for Environmental Research Chatbot! This guide w
 
 ### Image Understanding
 - llava-hf/llava-1.5-7b-hf: [here](https://huggingface.co/llava-hf/llava-1.5-7b-hf)  
-- Note that different models have different syntaxes to work with! e.g. llava-hf/llava-v1.6-mistral-7b-hf [Website](https://huggingface.co/llava-hf/llava-v1.6-mistral-7b-hf) has different syntaxes on Huggingface
+- Note that different models have different syntaxes to work with! e.g. llava-hf/llava-v1.6-mistral-7b-hf [here](https://huggingface.co/llava-hf/llava-v1.6-mistral-7b-hf) has different syntaxes on Huggingface
 - I recommend you to downlaod the weights from huggingface hub and put it in your local directory! e.g. llava-1.5-7b-hf is [here](https://huggingface.co/llava-hf/llava-1.5-7b-hf/tree/main), 
 
  
@@ -48,7 +48,7 @@ Welcome to the Helmholtz Center for Environmental Research Chatbot! This guide w
 
 ### Automatic speech recognition (ASR) and speech translation
 
-- openai/whisper-base.en: [Website](https://huggingface.co/openai/whisper-base.en)
+- openai/whisper-base.en: [here](https://huggingface.co/openai/whisper-base.en)
 
 ## Requirements:
 - Operating System: Linux OS or Windows Subsystem for Linux (WSL). Iused my institutational hardwares: Dell PowerEdge R940xa, Intel XEON Platinum 8280 / 4 * 28 Core + GPU NVIDIA Tesla V 100/32 GB -	Win2019 64 bit 
@@ -58,10 +58,11 @@ Welcome to the Helmholtz Center for Environmental Research Chatbot! This guide w
 ## Installation and Usage:
 
 - We highly recommend to frequently visit for related package updates since updates make conflict!
-	Pytorch[here](https://pytorch.org/), 
-	Huggingface[here](https://huggingface.co/docs/transformers/en/installation),
-	Openai[here](https://pypi.org/project/openai/),
-	Langchain[here](https://python.langchain.com/v0.1/docs/get_started/installation/)
+	Pytorch [here](https://pytorch.org/), 
+	Huggingface [here](https://huggingface.co/docs/transformers/en/installation),
+	Openai [here](https://pypi.org/project/openai/),
+	Langchain [here](https://python.langchain.com/v0.1/docs/get_started/installation/)
+	Langchain-community [here](https://pypi.org/project/langchain-community/)
 
  
 
@@ -89,9 +90,26 @@ source ...Path to the environment/chatbot-env/bin/activate
 ```
 conda create -n chatbot-env python=3.10
 ```
-
 Then start to install the packages manually:
 
+Here they are the steps that I have done for Windows OS! 
+
+Open the cmd and brows to the directoty that you have installed the conda! e.g
+ 
+```
+S:\Users\forootan\miniconda3\Scripts\activate
+```
+
+remember in / and \ differs in Linux and Windows!
+
+by now you should see s.th. like this ```(base) S:\>``` means that you activated the conda base environemnt!
+
+then type ```conda activate multi_llm```
+
+
+```
+pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+```
 
 
 
