@@ -31,20 +31,20 @@ Welcome to the Helmholtz Center for Environmental Research Chatbot! This guide w
 
 ## Models used in this chatbot:
 ### Question and Answering Capabilities:
-- GPT 3.5-turbo: [Website](https://platform.openai.com/docs/models) -- here we used Helmholtz base URL which was supported by Blablador [Website](https://strube1.pages.jsc.fz-juelich.de/2024-02-talk-lips-blablador/#/title-slide)
+- GPT 3.5-turbo: [Website](https://platform.openai.com/docs/models) -- here we used Helmholtz base URL which was supported by Blablador [here](https://strube1.pages.jsc.fz-juelich.de/2024-02-talk-lips-blablador/#/title-slide)
 - It is possible to add your API as well, but you need to insert API-Key
 
-- text-embedding-ada-002: [Website](https://platform.openai.com/docs/models)
+- text-embedding-ada-002: [here](https://platform.openai.com/docs/models)
 
 ### Image Understanding
-- llava-hf/llava-1.5-7b-hf: [Website](https://huggingface.co/llava-hf/llava-1.5-7b-hf)  
+- llava-hf/llava-1.5-7b-hf: [here](https://huggingface.co/llava-hf/llava-1.5-7b-hf)  
 - Note that different models have different syntaxes to work with! e.g. llava-hf/llava-v1.6-mistral-7b-hf [Website](https://huggingface.co/llava-hf/llava-v1.6-mistral-7b-hf) has different syntaxes on Huggingface
 - I recommend you to downlaod the weights from huggingface hub and put it in your local directory! e.g. llava-1.5-7b-hf is [here](https://huggingface.co/llava-hf/llava-1.5-7b-hf/tree/main), 
 
  
 ### Image Generation
 
-- stabilityai/stable-diffusion-xl-base-1.0 with LORA weights ByteDance/SDXL-Lightning : [Website](https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0), [Website] (https://huggingface.co/ByteDance/SDXL-Lightning)
+- stabilityai/stable-diffusion-xl-base-1.0  [here](https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0), with LORA weights ByteDance/SDXL-Lightning : [here](https://huggingface.co/ByteDance/SDXL-Lightning)
 
 ### Automatic speech recognition (ASR) and speech translation
 
@@ -57,12 +57,15 @@ Welcome to the Helmholtz Center for Environmental Research Chatbot! This guide w
 
 ## Installation and Usage:
 
-- We highly recommend to frequently visit
-	Pytorch[Website](https://pytorch.org/), 
-	Huggingface[Wesite](https://huggingface.co/docs/transformers/en/installation),
-	Openai[Website](https://pypi.org/project/openai/), for related package updates since updates make conflict!
+- We highly recommend to frequently visit for related package updates since updates make conflict!
+	Pytorch[here](https://pytorch.org/), 
+	Huggingface[here](https://huggingface.co/docs/transformers/en/installation),
+	Openai[here](https://pypi.org/project/openai/),
+	Langchain[here](https://python.langchain.com/v0.1/docs/get_started/installation/)
 
-- Ensure that you have a conda installation on your device! you may consider Minicaonda[Website](https://docs.anaconda.com/miniconda/#quick-command-line-install)
+ 
+
+- Ensure that you have a conda installation on your device! you may consider Minicaonda[here](https://docs.anaconda.com/miniconda/#quick-command-line-install)
 
 - Ensure you have Python installed along with required dependencies.
 
