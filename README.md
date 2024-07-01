@@ -162,8 +162,8 @@ llm_function_caller:
   gpt_model: gpt-3.5-turbo
   temperature: 0
   system_role:
-    "As a chatbot, your goal is to respond to the user's question respectfully and concisely.\
-    Feel free to answer the user from your own knowledge.\
+    "As a chatbot, your goal is to respond to the user's question respectfully and concisely.
+    Feel free to answer the user from your own knowledge.
     However, if the user's query needs to be answered by searching over the internet, return the best fuction to serve the user from the provided functions.\
     "
 ```
@@ -182,32 +182,29 @@ python src\prepare_vectordb_from_docs.py
 ### Manual Execution:
 Terminal One: RAG Reference Service
 ```
-python src/utils/web_servers/rag_reference_service.py
+python src\utils\web_servers\rag_reference_service.py
 ```
 Terminal Two: LLava Service
 ```
-python src/utils/web_servers/llava_service.py
+python src\utils\web_servers\llava_service.py
 ```
 Terminal Three: Stable Diffusion Service
 ```
-python src/utils/web_servers/sdxl_service.py
+python src\utils\web_servers\sdxl_service.py
 ```
 Terminal Four: Speech-to-Text Service
 ```
-python src/utils/web_servers/stt_service.py
+python src\utils\web_servers\stt_service.py
 ```
 Launch Chatbot Interface in terminal five:
 ```
-python src/app.py
+python src\app.py
 ```
-or
-```
-gradio src/app.py
-```
+
 
 ## Chatbot User Interface
 <div align="center">
-  <img src="images/UI.png" alt="ChatBot UI">
+  <img src="images/ufz_UI.png" alt="ufz_UI">
 </div>
 
 
