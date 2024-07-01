@@ -151,13 +151,27 @@ directories:
   custom_persist_directory: data\vectordb\uploaded\chroma\
 ```
 
+these paths are required for the running of the process!
 
 
+or `webragquery` has the following content!
 
 
-To prepare Documents for RAG, Copy PDF files to `data/docs` directory and execute:
+```text
+llm_function_caller:
+  gpt_model: gpt-3.5-turbo
+  temperature: 0
+  system_role:
+    "As a chatbot, your goal is to respond to the user's question respectfully and concisely.\
+    Feel free to answer the user from your own knowledge.\
+    However, if the user's query needs to be answered by searching over the internet, return the best fuction to serve the user from the provided functions.\
+    "
 ```
-python src/prepare_vectordb_from_docs.py
+
+
+To prepare Documents for RAG, Copy PDF files to `data\docs` directory and execute:
+```
+python src\prepare_vectordb_from_docs.py
 ```
 
 
