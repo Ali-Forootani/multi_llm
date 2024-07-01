@@ -178,16 +178,44 @@ python src\prepare_vectordb_from_docs.py
 
 #### Example of loading a LMM from local directory
 
+You can find the entire code in the related directory
+
 ```python
+from flask import Flask, request, jsonify
+from transformers import LlavaNextProcessor, LlavaNextForConditionalGeneration
+from transformers import LlavaNextForConditionalGeneration, BitsAndBytesConfig
+from transformers import AutoProcessor, LlavaForConditionalGeneration
+from PIL import Image
+import torch
+from load_web_service_config import LoadWebServicesConfig
+WEB_SERVICE_CFG = LoadWebServicesConfig()
+import requests
+import sys
+import os
+import torch
+
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+cwd = os.getcwd()
+sys.path.append(cwd)
+
+def setting_directory(depth):
+    current_dir = os.path.abspath(os.getcwd())
+    root_dir = current_dir
+    for i in range(depth):
+        root_dir = os.path.abspath(os.path.join(root_dir, os.pardir))
+        sys.path.append(os.path.dirname(root_dir))
+    return root_dir
+
 
 def load_llava(quantized=True):
     
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
+    # Here you should give the appropriate directory!
+    # Remember that if you use Linux OS \\ will change to / !
+    # Depends on the model that you want to load the huggingface syntaxes will differ!
     model_path = setting_directory(4) + "\\Llavar_repo\\LLaVA\\llava-1.5-7b-hf"
-    
-    
-   
+       
     if quantized and str(1.6) in model_path:
         quantization_config = BitsAndBytesConfig(
             load_in_4bit = True,
@@ -202,8 +230,6 @@ def load_llava(quantized=True):
         processor = LlavaNextProcessor.from_pretrained(
             model_path)
     else:
-        print("Loading the full model:")
-        
         
         model = LlavaForConditionalGeneration.from_pretrained(
             model_path, 
@@ -212,10 +238,7 @@ def load_llava(quantized=True):
             ).to(device)
         processor = AutoProcessor.from_pretrained(model_path)
         
-        #model = LlavaNextForConditionalGeneration.from_pretrained(
-        #    model_path, torch_dtype=torch.float16, low_cpu_mem_usage=True).to(device)
     return processor, model
-
 
 processor, model = load_llava(quantized=True)
 
