@@ -90,7 +90,7 @@ source ...Path to the environment/chatbot-env/bin/activate
 ```
 conda create -n chatbot-env python=3.10
 ```
-Then start to install the packages manually:
+
 
 Here they are the steps that I have done for Windows OS! 
 
@@ -107,10 +107,25 @@ by now you should see s.th. like this ```(base) S:\>``` means that you activated
 then type ```conda activate multi_llm```
 
 
+
+Then start to install the packages manually:
+
 ```
 pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+pip install 'transformers[torch]'
+pip install openai
+pip install langchain
+pip install langchain-community
+pip install accelerate
+pip install uvicorn
+pip install tiktoken
+pip install bitsandbytes
+pip install pyprojroot
+pip install gradio
 ```
 
+
+You can use your custome IDE but I used Spyder(```pip install spyder```) or conda-forge channel [here](https://anaconda.org/conda-forge/spyder) ```conda install conda-forge::spyder``` 
 
 
 
