@@ -45,10 +45,15 @@ Welcome to the Helmholtz Center for Environmental Research Chatbot! This guide w
 ### Image Generation
 
 - stabilityai/stable-diffusion-xl-base-1.0  [here](https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0), with LORA weights ByteDance/SDXL-Lightning : [here](https://huggingface.co/ByteDance/SDXL-Lightning)
+- I recommend you to downlaod the weights from huggingface hub and put it in your local directory! stable-diffusion-xl-base-1.0 [here](https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/tree/main) and
+ ByteDance/SDXL-Lightning [here](https://huggingface.co/ByteDance/SDXL-Lightning/tree/main)
+- Please consider that while zou are downloading the files never change their names! since the models are sensitive to the names! if during the download somehow they changed re-name them to their original name later on!
+
 
 ### Automatic speech recognition (ASR) and speech translation
 
 - openai/whisper-base.en: [here](https://huggingface.co/openai/whisper-base.en)
+- I recommend you to downlaod the weights from huggingface hub and put it in your local directory! e.g. whisper-base.en [here](https://huggingface.co/openai/whisper-base.en/tree/main)
 
 ## Requirements:
 - Operating System: Linux OS or Windows Subsystem for Linux (WSL). Iused my institutational hardwares: Dell PowerEdge R940xa, Intel XEON Platinum 8280 / 4 * 28 Core + GPU NVIDIA Tesla V 100/32 GB -	Win2019 64 bit 
