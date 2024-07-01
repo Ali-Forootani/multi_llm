@@ -49,7 +49,7 @@ Welcome to the Helmholtz Center for Environmental Research Chatbot! This guide w
 - openai/whisper-base.en: [Website](https://huggingface.co/openai/whisper-base.en)
 
 ## Requirements:
-- Operating System: Linux OS or Windows Subsystem for Linux (WSL). I used WINDOWS OS supported by 
+- Operating System: Linux OS or Windows Subsystem for Linux (WSL). Iused my institutational hardwares: Dell PowerEdge R940xa 	Intel XEON Platinum 8280 / 4 * 28 Core + GPU NVIDIA Tesla V 100/32 GB -	Win2019 64 bit 
 - GPU VRAM: Minimum 15 GB for full execution.
 - OpenAI or Azure OpenAI Credentials: Required for GPT functionality.
 
