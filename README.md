@@ -37,7 +37,7 @@ Welcome to the Helmholtz Center for Environmental Research Chatbot! This guide w
 - text-embedding-ada-002: [Website](https://platform.openai.com/docs/models)
 
 ### Image Understanding
-- llava-hf/llava-1.5-7b-hf: [Website](https://huggingface.co/llava-hf/llava-1.5-7b-hf) - 
+- llava-hf/llava-1.5-7b-hf: [Website](https://huggingface.co/llava-hf/llava-1.5-7b-hf)  
 - Note that different models have different syntaxes to work with! e.g. llava-hf/llava-v1.6-mistral-7b-hf [Website](https://huggingface.co/llava-hf/llava-v1.6-mistral-7b-hf) has different syntaxes on Huggingface
 
 ### Image Generation
@@ -49,22 +49,38 @@ Welcome to the Helmholtz Center for Environmental Research Chatbot! This guide w
 - openai/whisper-base.en: [Website](https://huggingface.co/openai/whisper-base.en)
 
 ## Requirements:
-- Operating System: Linux OS or Windows Subsystem for Linux (WSL). Iused my institutational hardwares: Dell PowerEdge R940xa 	Intel XEON Platinum 8280 / 4 * 28 Core + GPU NVIDIA Tesla V 100/32 GB -	Win2019 64 bit 
+- Operating System: Linux OS or Windows Subsystem for Linux (WSL). Iused my institutational hardwares: Dell PowerEdge R940xa, Intel XEON Platinum 8280 / 4 * 28 Core + GPU NVIDIA Tesla V 100/32 GB -	Win2019 64 bit 
 - GPU VRAM: Minimum 15 GB for full execution.
 - OpenAI or Azure OpenAI Credentials: Required for GPT functionality.
 
-## Installation:
+## Installation and Usage:
+
+- We highly recommend to frequently visit
+	Pytorch[Website](https://pytorch.org/), 
+	Huggingface[Wesite] (https://huggingface.co/docs/transformers/en/installation),
+	Openai[Website] (https://pypi.org/project/openai/), for related package updates since updates make conflict!
+
+- Ensure that you have a conda installation on your device! you may consider Minicaonda [Website](https://docs.anaconda.com/miniconda/#quick-command-line-install)
+
 - Ensure you have Python installed along with required dependencies.
-```
+
+- If you use linux OS you may consider the following to install a new virtual environemnt and name it arbitrary
+
+```bash
 sudo apt update && sudo apt upgrade
 python3 -m venv chatbot-env
 git clone <the repository>
 ```
-cd multimodal-chatbot
+cd multi_llm
 ```
 source ...Path to the environment/chatbot-env/bin/activate
-pip install -r requirements.txt
 ```
+
+
+
+
+
+
 - No need to download model weights separately; all models are accessed directly from the HuggingFace hub.
 
 ## Execution:
