@@ -105,7 +105,7 @@ Open the cmd and brows to the directoty that you have installed the conda! e.g
 S:\Users\forootan\miniconda3\Scripts\activate
 ```
 
-remember in / and \ differs in Linux and Windows!
+remember in "/" and "\" differs in Linux OS and Windows OS!
 
 by now you should see s.th. like this ```(base) S:\>``` means that you activated the conda base environemnt!
 
@@ -128,6 +128,10 @@ pip install bitsandbytes
 pip install pyprojroot
 pip install chromadb
 pip install duckduckgo-search
+pip install pillow
+pip install sentencepiece
+pip install peft
+pip install fastapi
 pip install gradio
 ```
 
