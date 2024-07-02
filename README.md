@@ -116,7 +116,7 @@ then type ```conda activate multi_llm```
 #### Then start to install the packages manually:
 
 ```
-pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+conda install pytorch torchvision torchaudio pytorch-cuda=11.8 -c pytorch -c nvidia
 pip install 'transformers[torch]'
 pip install openai
 pip install langchain

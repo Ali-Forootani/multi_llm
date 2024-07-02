@@ -6,21 +6,32 @@ Created on Wed Jun 19 14:48:08 2024
 """
 
 MAX_LENGTH = 256
+
+# MODEL_ID = "llava-hf/llava-v1.6-mistral-7b-hf"
+
 MODEL_ID = "\\Llavar_repo\\LLaVA\\llava-v1.6-mistral-7b-hf"
 REPO_ID = "YOUR-HUB-REPO-TO-PUSH"
 WANDB_PROJECT = "LLaVaNeXT"
 WANDB_NAME = "llava-next-demo-cord"
 
-#!pip install bitsandbytes accelerate nltk lightning peft datasets
 
+
+"""
+Here they are the libraries that are needed for running the module
+#!pip install bitsandbytes accelerate nltk lightning peft datasets
+"""
+
+
+
+"""
+Link on the google colab
+https://colab.research.google.com/drive/1yjBGec3BOXg44R9HkuLxipI3spVKjomR?usp=sharing#scrollTo=sqEY8CKq89qo
+"""
 
 
 from datasets import load_dataset
 
 dataset = load_dataset("naver-clova-ix/cord-v2")
-
-
-
 
 
 
