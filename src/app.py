@@ -27,13 +27,31 @@ body {
     background-color:#ADD8E6;
 }
 """
+custom_css = """
+body {
+    font-size: 22px;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-size: 1.5em;
+}
+.gradio-container .gradio-interface {
+    font-size: 22px;
+}
+.gradio-container .gradio-markdown {
+    font-size: 22px;
+}
+.gradio-container .gradio-button, .gradio-container .gradio-input {
+    font-size: 22px;
+}
+"""
 
-custom_css=".gradio-container {background-color:green}"
 
+#custom_css=".gradio-container {background-color:green}"
+#custom_css = ".gradio-container {background-color: #f0f0f0;}"
 
-with gr.Blocks(theme=gr.themes.Glass()) as demo:
+with gr.Blocks(theme=gr.themes.Base(), css=custom_css) as demo:
     with gr.Tabs():
-        with gr.TabItem("Advanced UFZ-Leipzig ChatBot"):
+        with gr.TabItem("Bio-Eng-LLM ChatBot"):
             ###############
             # Main App row:
             ###############
