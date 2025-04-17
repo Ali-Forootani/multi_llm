@@ -284,7 +284,7 @@ python src\app.py
 
 ## Project Schema
 <div align="center">
-  <img src="images/Schema.png" alt="Schema">
+  <img src="images/bio_eng_llm_total.png" alt="Schema">
 </div>
 
 ## Key frameworks/libraries used in this chatbot:
